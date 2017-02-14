@@ -12,6 +12,7 @@
 		560840A91E49049900D6CC88 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560840A71E49049900D6CC88 /* Main.storyboard */; };
 		560840AB1E49049900D6CC88 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 560840AA1E49049900D6CC88 /* Assets.xcassets */; };
 		560840AE1E49049900D6CC88 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 560840AC1E49049900D6CC88 /* LaunchScreen.storyboard */; };
+		560840B61E4A885A00D6CC88 /* Units.plist in Resources */ = {isa = PBXBuildFile; fileRef = 560840B51E4A885A00D6CC88 /* Units.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		560840AA1E49049900D6CC88 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		560840AD1E49049900D6CC88 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		560840AF1E49049900D6CC88 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		560840B51E4A885A00D6CC88 /* Units.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Units.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -38,6 +40,7 @@
 		560840971E49049900D6CC88 = {
 			isa = PBXGroup;
 			children = (
+				560840B51E4A885A00D6CC88 /* Units.plist */,
 				560840A21E49049900D6CC88 /* Clemons_UnitConverter */,
 				560840A11E49049900D6CC88 /* Products */,
 			);
@@ -123,6 +126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				560840B61E4A885A00D6CC88 /* Units.plist in Resources */,
 				560840AE1E49049900D6CC88 /* LaunchScreen.storyboard in Resources */,
 				560840AB1E49049900D6CC88 /* Assets.xcassets in Resources */,
 				560840A91E49049900D6CC88 /* Main.storyboard in Resources */,
