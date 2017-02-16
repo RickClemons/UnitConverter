@@ -22,6 +22,18 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
         units = NSDictionary(contentsOfFile: filePath)!
         //4. retrieve the unit names(keys) into the unitNames array object
         unitName = units.allKeys as NSArray!
+        unitName = unitName.sorted(by:sortUnitName) as NSArray!
+    }
+    func sortUnitName(first: Any, second:Any) -> Bool {
+        let firstName = first as! String
+        let secondName = second as! String
+        
+        //return firstName<secondName
+        
+        let conversionFactor1 = units.value(forKey: firstName) as! Float
+        let conversionFactor2 = units.value(forKey: secondName) as! Float
+        
+        return conversionFactor1 < conversionFactor2
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
