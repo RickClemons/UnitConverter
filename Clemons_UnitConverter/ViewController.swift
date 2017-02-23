@@ -12,6 +12,10 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     var units: NSDictionary!
     var unitName: NSArray!
     
+    @IBOutlet weak var pickerViewFrom: UIPickerView!
+    @IBOutlet weak var pickerViewConvertTo: UIPickerView!
+    @IBOutlet weak var txtAmount: UITextField!
+    @IBOutlet weak var lblResult: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
         // 1. get a reference to the app bundle
@@ -44,6 +48,37 @@ class ViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDele
     }
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return unitName.object(at: row) as? String
+    }
+    @IBAction func userClickedConvert() {
+        convert()
+    }
+    func convert(){
+     //1. retrieve amount enetered in the text field
+        let amountAsText=txtAmount.text!
+        let numberFormatter=NumberFormatter()
+        let amountAsNumber=numberFormatter.number(from: amountAsText)!
+        let amount=amountAsNumber.floatValue
+        
+    //2. retrieve unit the the user selected convert from
+        let indexOfUnitToConvertFrom=pickerViewFrom.selectedRow(inComponent: 0)
+        let unitNameToConvertFrom=unitName.object(at: indexOfUnitToConvertFrom) as? String
+        let conversionFactorToInch=units.value(forKey: unitNameToConvertFrom!) as! Float
+        
+    //3.convert the amount to inches(first step in two step conversion)
+         let amountInInches=amount*conversionFactorToInch
+        
+    //4.retrieve the unit that the user selected to convert to
+        let indexOfUnitToConvertTo=pickerViewConvertTo.selectedRow(inComponent: 0)
+        let unitNameToConvertTo=unitName.object(at: indexOfUnitToConvertTo)as? String
+        let conversionFactorFromInch=units.value(forKey: unitNameToConvertTo!)as! Float
+        let result=amountInInches / conversionFactorFromInch
+        
+    //5.construct the result message and display in the label
+        let resultAsString=String.localizedStringWithFormat("%.6f %@=%.6f %@", amount,unitNameToConvertFrom!, result, unitNameToConvertTo!)
+            lblResult.text=resultAsString
+        
+    //6. dismiss the keyboard
+        txtAmount.resignFirstResponder()
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
